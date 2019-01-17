@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Expose 'llnwrtssdk' on the window global to reference in your 'subscribe' script -->
+    <script type="text/javascript" src="https://<***limelight account name (aka shortname)***>.rts.llnwi.net/realtime-streaming/current/llnw-rts/llnw-rts-sdk.min.js"></script>
+    <!-- Recommended shim for cross-browser WebRTC support. -->
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <!-- Include style sheet with icons -->
+    <link href="https://<***limelight account name (aka shortname)***>.rts.llnwi.net/realtime-streaming/current/llnw-rts/llnw-rts-media.css" rel="stylesheet">
+    <!-- Fullscreen shim. -->
+    <script type="text/javascript" src="https://<***limelight account name (aka shortname)***>.rts.llnwi.net/realtime-streaming/current/screenfull/screenfull.min.js"></script>
+  </head>
+  <body>
+    <video id="limelightlive-subscriber"
+           class="llnw-rts-media llnw-rts-media-background"
+           autoplay controls>
+    </video>
+    Number of connections: <span id="countpeople"></span>
+    
+    <!-- Example script below. -->
+    <script src="simple-with-sharedobject.js"></script>
+
+  </body>
+</html>
+
+
