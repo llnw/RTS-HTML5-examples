@@ -1,5 +1,5 @@
 var shortname = '<limelight account name (aka shortname)>';
-var streamname= '<stream name>'
+var streamname= '<stream name>';
 var sdk_rootpath= 'https://<***limelight account name (aka shortname)***>.rts.llnwi.net/realtime-streaming/current/llnw-rts/';
 
 
