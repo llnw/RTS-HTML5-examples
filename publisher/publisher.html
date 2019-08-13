@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Limelight RTS Publisher Example</title>
+  <script src="https://llrtsprod.s.llnwi.net/v1/llnwrtssdk/html/current/llnw-rts-sdk.min.js"></script>
+  <script src="https://llrtsprod.s.llnwi.net/v1/llnwrtssdk/html/current/lib/screenfull.min.js"></script>
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  </style>
+</head>
+
+<body>
+  <h1>Limelight RTS Publisher Example</h1>
+  <div class="llnw-rts-player" style="width:640px;height:480px;">
+    <video id="limelightlive-publish"
+      class="llnw-rts-media llnw-media-background"
+      width="640" height="480"
+      autoplay muted></video>
+  </div>
+  <script>
+    llnwrtssdk.setLogLevel('debug');
+
+    var config = {
+      mediaElementId: 'limelightlive-publish',
+      host: '<ingest host>',
+      app: '<app>',
+      streamName: '<stream name>',
+      connectionParams: {
+        "username": "<username>",
+        "password": "<password>"
+      },
+      mediaConstraints: {
+        audio: true,
+        video: {
+          width: { exact: 640 }, height: { exact: 480 },
+          frameRate: { min: 8, max: 24 },
+        },
+      },
+    };
+
+    (new llnwrtssdk.RTCPublisher())
+      .init(config)
+      .then(function(publisher) {
+        return publisher.publish();
+      }).catch(function(e) {
+        console.error('Publisher error: ' + e);
+      });
+  </script>
+</body>
+</html>
