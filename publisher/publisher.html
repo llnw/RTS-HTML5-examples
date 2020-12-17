@@ -2,15 +2,14 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Limelight RTS Publisher Example</title>
-  <script src="https://llrtsprod.s.llnwi.net/v1/llnwrtssdk/html/current/llnw-rts-sdk.min.js"></script>
-  <script src="https://llrtsprod.s.llnwi.net/v1/llnwrtssdk/html/current/lib/screenfull.min.js"></script>
+  <title>Limelight RTSv2 Publisher Example</title>
+  <script src="https://llrtsprod.s.llnwi.net/v1/sdk/html/current/llnwrtssdk.min.js"></script>
   <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
   </style>
 </head>
 
 <body>
-  <h1>Limelight RTS Publisher Example</h1>
+  <h1>Limelight RTSv2 Publisher Example</h1>
   <div class="llnw-rts-player" style="width:640px;height:480px;">
     <video id="limelightlive-publish"
       class="llnw-rts-media llnw-media-background"
@@ -18,27 +17,25 @@
       autoplay muted></video>
   </div>
   <script>
-    llnwrtssdk.setLogLevel('debug');
-
     var config = {
       mediaElementId: 'limelightlive-publish',
       host: '<ingest host>',
-      app: '<app>',
+      shortName: '<short name>',
       streamName: '<stream name>',
-      connectionParams: {
-        "username": "<username>",
-        "password": "<password>"
-      },
+      username: '<username>',
+      password: '<password>',
+      rendition: '<rendition>',
       mediaConstraints: {
         audio: true,
         video: {
           width: { exact: 640 }, height: { exact: 480 },
-          frameRate: { min: 8, max: 24 },
+          frameRate: 10,
+          facingMode: 'environment',
         },
       },
     };
 
-    (new llnwrtssdk.RTCPublisher())
+    (new llnwrtssdk.Publisher())
       .init(config)
       .then(function(publisher) {
         return publisher.publish();
