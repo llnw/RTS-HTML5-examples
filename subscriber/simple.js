@@ -9,7 +9,7 @@ subscriber.on('*',handleSubscriberEvent);
 	console.log('Starting!');
 
 	var subscribe_config = {
-		mediaElementId: 'llnw-rts-subscriber',
+		mediaElement: document.getElementById('llnw-rts-subscriber'),
 		host: '<host>',
 		shortName: '<short name>',
 		streamName: '<stream name>',

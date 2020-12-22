@@ -6,7 +6,7 @@
 
   var host = '<host>';
   var shortName = '<limelight account name (aka shortname)>';
-  var streamName= '<stream name>';
+  var streamName = '<stream name>';
   var mvsecret = '<secret>';
 
   var validation_url_string = llnwrtssdk.buildValidationURL({
@@ -19,7 +19,7 @@
   var subscriber = new llnwrtssdk.Subscriber();
 		           
   var subscribe_config = {
-    mediaElementId: 'limelightlive-subscriber',
+    mediaElement: document.getElementById('limelightlive-subscriber'),
     encodedURL: validation_url_string,
     host: host,
     streamName: streamName,
